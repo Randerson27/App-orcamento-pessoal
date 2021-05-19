@@ -14,7 +14,7 @@ class Despesa {
                 return false
             }
         }
-        return true
+        return true 
     }
 }
 
@@ -64,9 +64,10 @@ function cadastrarDespesa() {
 	)
     
     if(despesa.validarDados()) {
-        console.log('Dados validos')
+        bd.gravar(despesa)
+        $('#sucessoGravacao').modal('show')
     }else{
-        console.log('Dados invalidos')
+        $('#erroGravacao').modal('show')
     }
 	
 }
