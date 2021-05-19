@@ -7,6 +7,15 @@ class Despesa {
 		this.descricao = descricao
 		this.valor = valor
 	}
+
+    validarDados(){
+        for(let i in this) {
+            if(this[i] == undefined || this[i] == '' || this[i] == null) {
+                return false
+            }
+        }
+        return true
+    }
 }
 
 class Bd {
@@ -53,6 +62,11 @@ function cadastrarDespesa() {
 		descricao.value,
 		valor.value
 	)
-
-	bd.gravar(despesa)
+    
+    if(despesa.validarDados()) {
+        console.log('Dados validos')
+    }else{
+        console.log('Dados invalidos')
+    }
+	
 }
